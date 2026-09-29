@@ -1,0 +1,256 @@
+/* ================================================================
+   HERO SECTION — Premium Styles
+   ================================================================ */
+
+/* ── Grid overlay ─────────────────────────────────────────────── */
+.hero-grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255 255 255 / 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255 255 255 / 0.03) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 100%);
+    pointer-events: none;
+}
+
+/* ── Film-grain noise ─────────────────────────────────────────── */
+.hero-noise {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* ── Ambient glow orbs ────────────────────────────────────────── */
+.hero-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+    will-change: transform, opacity;
+}
+
+.hero-glow--top {
+    width: 600px;
+    height: 600px;
+    top: -12%;
+    right: -8%;
+    background: radial-gradient(circle, rgba(255 255 255 / 0.06) 0%, transparent 70%);
+    animation: glow-drift 14s ease-in-out infinite alternate;
+}
+
+.hero-glow--bottom {
+    width: 500px;
+    height: 500px;
+    bottom: -10%;
+    left: -5%;
+    background: radial-gradient(circle, rgba(255 255 255 / 0.04) 0%, transparent 70%);
+    animation: glow-drift 18s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes glow-drift {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.6;
+    }
+    100% {
+        transform: translate(30px, -20px) scale(1.15);
+        opacity: 1;
+    }
+}
+
+/* ── Gradient shimmer text ────────────────────────────────────── */
+.hero-gradient-text {
+    background: linear-gradient(
+        90deg,
+        #d4d4d4 0%,
+        #ffffff 25%,
+        #a3a3a3 50%,
+        #ffffff 75%,
+        #d4d4d4 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer-text 6s ease-in-out infinite;
+}
+
+@keyframes shimmer-text {
+    0% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+/* ── Headline tracking ────────────────────────────────────────── */
+.hero-headline {
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+}
+
+/* ── Buttons ──────────────────────────────────────────────────── */
+.hero-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.85rem 2rem;
+    border-radius: 9999px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+/* Primary */
+.hero-btn--primary {
+    background: #ffffff;
+    color: #080808;
+    box-shadow:
+        0 0 0 1px rgba(255 255 255 / 0.1),
+        0 1px 2px rgba(0 0 0 / 0.3),
+        0 4px 16px rgba(255 255 255 / 0.06);
+}
+
+.hero-btn--primary:hover {
+    background: #ededed;
+    transform: translateY(-2px);
+    box-shadow:
+        0 0 0 1px rgba(255 255 255 / 0.15),
+        0 4px 12px rgba(0 0 0 / 0.4),
+        0 8px 28px rgba(255 255 255 / 0.08);
+}
+
+.hero-btn--primary:active {
+    transform: translateY(0);
+}
+
+.hero-btn__icon {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 1rem;
+}
+
+.hero-btn--primary:hover .hero-btn__icon {
+    transform: translateX(4px);
+}
+
+/* Secondary */
+.hero-btn--secondary {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(255 255 255 / 0.12);
+    backdrop-filter: blur(8px);
+}
+
+.hero-btn--secondary:hover {
+    border-color: rgba(255 255 255 / 0.3);
+    background: rgba(255 255 255 / 0.05);
+    transform: translateY(-2px);
+}
+
+.hero-btn--secondary:active {
+    transform: translateY(0);
+}
+
+/* ── Staggered reveal ─────────────────────────────────────────── */
+.hero-reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+        opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-content.is-visible .hero-reveal--1 {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.1s;
+}
+
+.hero-content.is-visible .hero-reveal--2 {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.3s;
+}
+
+.hero-content.is-visible .hero-reveal--3 {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.5s;
+}
+
+.hero-content.is-visible .hero-reveal--4 {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.7s;
+}
+
+/* Bottom bar uses its own .is-visible */
+.hero-bottom.is-visible.hero-reveal--5 {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.9s;
+}
+
+/* ── Bottom bar ───────────────────────────────────────────────── */
+.hero-bottom {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 1.5rem;
+    right: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255 255 255 / 0.06);
+    padding-top: 1.25rem;
+}
+
+@media (min-width: 1024px) {
+    .hero-bottom {
+        left: 2.5rem;
+        right: 2.5rem;
+    }
+}
+
+/* ── Scroll hint line ─────────────────────────────────────────── */
+.hero-scroll-line {
+    display: inline-block;
+    width: 32px;
+    height: 1px;
+    background: currentColor;
+    transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-scroll-hint:hover .hero-scroll-line {
+    width: 48px;
+}
+
+/* ── Responsive fine-tuning ───────────────────────────────────── */
+@media (max-width: 639px) {
+    .hero-glow--top {
+        width: 320px;
+        height: 320px;
+    }
+    .hero-glow--bottom {
+        width: 260px;
+        height: 260px;
+    }
+
+    .hero-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+}
