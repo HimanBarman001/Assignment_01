@@ -40,7 +40,7 @@
                             <div className="space-y-3">
 
                                 <a
-                                    href="#"
+                                    href="https://github.com/HimanBarman001?tab=repositories"
                                     target="_blank"
                                     rel="noreferrer"
                                     className="group flex w-fit items-center gap-3 text-sm text-text-tertiary transition-colors duration-200 hover:text-text-primary"

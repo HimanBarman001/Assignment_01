@@ -75,7 +75,7 @@ function Contact() {
 
                             {/* GitHub */}
                             <a
-                                href="#"
+                                href="https://github.com/HimanBarman001?tab=repositories"
                                 target="_blank"
                                 rel="noreferrer"
                                 className="group flex items-center justify-between border-b border-border-subtle py-6"
